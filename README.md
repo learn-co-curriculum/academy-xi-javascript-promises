@@ -298,17 +298,17 @@ fetch("https://api.api-ninjas.com/v1/dadjokes")
 The fetch is executed in the first line and immediately returns a Promise with
 status _pending_. The `then()` method will not be called until the execution of
 the `fetch()` is complete. At that point, the value returned by the fetch (in
-this case, the joke) is automatically passed into the first `then()`. We capture
-the value by assigning a parameter name (`resp`) so we can use it in the
-callback function we've specified. In this case, the callback calls the `json()`
-method on `resp`, which will translate the response received from the API into
-JSON.
+this case, JSON containing the joke) is automatically passed into the first
+`then()`. We capture the value by assigning a parameter name (`resp`) so we can
+use it in the callback function we've specified. In this case, the callback
+calls the `json()` method on `resp`, to convert the JSON into JavaScript data
+structures we can interact with easily.
 
 The `json()` method is _also_ asynchronous so it, too, returns a Promise. This
-means its eventual return value (the JSON-ified joke) can _also_ be handled
-using `then()`. As before, the return value is automatically passed into
-`then()` when the `json()` method resolves, captured by specifying a parameter
-name for it (`data`), and, finally, logged to the console.
+means its eventual return value (the joke object) can _also_ be handled using
+`then()`. As before, the return value is automatically passed into `then()` when
+the `json()` method resolves, captured by specifying a parameter name for it
+(`data`), and, finally, logged to the console.
 
 In each step, the `then()` method automatically calls its callback as soon as
 the preceding promise is resolved, and passes in the value it receives.
