@@ -137,10 +137,10 @@ do something like the following:
 
 [iss]: https://www.nasa.gov/international-space-station/
 
-Step 1: Get the user's location
-Step 2: Translate the location into a latitude and longitude
-Step 3: Retrieve the next sighting for those coordinates
-Step 4: Display the info
+1. Get the user's location
+2. Translate the location into a latitude and longitude
+3. Retrieve the next sighting for those coordinates
+4. Display the info
 
 We can imagine writing a function to accomplish each step in the chain, then
 calling them in order, each time passing the result from the previous function
