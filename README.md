@@ -109,7 +109,7 @@ first line, which "fetches" the quote, before it executes the next line, which
 calls the callback.
 
 Then, instead of calling `console.log()` directly, we'll call our `getQuote()`
-function, passing in our callback function. We'll pass an in-line callback
+function, passing in our callback function. We'll pass an inline callback
 function, but of course we could use a named function instead:
 
 ```js
@@ -155,7 +155,7 @@ displayNextSighting(nextSighting);
 
 This is the same situation we had with the random quote code, just multiplied.
 If `getLocation()` is an asynchronous function, then the value of `location`
-will be `undefined` when it is passed into `getLatLong()`, causing the code to
+will be `undefined` when it's passed into `getLatLong()`, causing the code to
 error out. So we need to make sure `getLatLong()` isn't called until after
 `getLocation()` has finished executing.
 
@@ -188,7 +188,7 @@ getLocation(getLatLong);
 
 In the code above, `getLocation()` is called, passing `getLatLong()` as a
 callback. Then, when `getLatLong()` is called inside the function, both the
-fetch location and `getNextSighting()` are passed as arguments.
+fetched location and `getNextSighting()` are passed as arguments.
 
 Then, if `getNextSighting()` is also asynchronous, the final function in the
 chain, `displayNextSighting()`, would need to be passed into _it_ as a callback.
@@ -218,10 +218,13 @@ is what JavaScript programmers refer to as "[callback hell][cb-hell]".
 
 For a long time, callback functions were the only available option for handling
 code that depends on the results of asynchronous code, but fortunately, that is
-no longer the case. More recent versions of JavaScript include two other options
-for handling asynchronous code: the [`Promise`][promise] object and
-[`async`][async]/[`await`][await]. We will talk about `Promise` in this lesson,
-and cover async/await in a later lesson.
+no longer the case. With ES6, a better option for handling asynchronous code was
+released: the [`Promise`][promise] object.
+
+> Note: yet another option for handling asynchronous code was released in a more
+> recent version of JavaScript: [`async`][async]/[`await`][await]. We will not
+> be covering async/await in this course, but feel free to [check it
+> out][async-await] if you're interested in learning more.
 
 [cb-hell]: https://www.geeksforgeeks.org/what-to-understand-callback-and-callback-hell-in-javascript/
 
@@ -360,22 +363,23 @@ explicitly for each function in the chain.
 While use of asynchronous code can be very helpful for keeping code that takes a
 long time to execute from blocking the code that comes after it, it can also
 cause problems. Specifically, if any subsequent functions depend on the results
-of an asynchronous function, our code may not function as intended. In the past,
+of an asynchronous function, we may not get the intended results. In the past,
 the only way to handle this problem was through the use of callback functions,
 often leading to the situation referred to as callback hell.
 
 With ES6, Promises were added to JavaScript, providing a better option. Promises
-make asynchronous code easier to read and understand, provide better handling of
-asynchronous process, and have error handling built in.
+make asynchronous code cleaner and easier to read and understand, provide better
+handling of asynchronous process, and have error handling built in.
 
 ## Resources
 
 - [MDN: Promise][promise]
 - [MDN: Using Promises][using-promises]
-- [JavaScript Promises -- Tutorial for Beginners](https://colorcode.io/videos/js-promises)
-- [Resource Link 2](example.com)
+- [JavaScript Promises — Tutorial for Beginners](https://colorcode.io/videos/js-promises)
+- [Async Await vs. Promises — JavaScript Tutorial for Beginners][async-await]
 
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [using-promises]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 [async]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
 [await]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+[async-await]: https://www.colorcode.io/videos/js-async-await
